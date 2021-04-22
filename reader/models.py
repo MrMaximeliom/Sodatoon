@@ -10,6 +10,8 @@ class User(AbstractUser):
     phone_number = models.TextField(null=True,blank=True)
     is_reader = models.BooleanField(default=True,null=False,blank=False)
     registration_timestamp = models.DateTimeField(auto_now_add=True)
+    gender = models.BooleanField(null=False,blank=False)
+    profile_image = models.TextField(null=True,blank=True)
     def __str__(self):
         return self.first_name + self.last_name
 

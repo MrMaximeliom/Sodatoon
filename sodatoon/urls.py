@@ -24,7 +24,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'story', views.StoryViewSet)
 router.register(r'episode', views.EpisodeViewSet)
-router.register(r'event', views.EpisodeViewSet)
+router.register(r'event', views.EventViewSet)
 router.register(r'event-participants', views.EventParticipantsViewSet)
 router.register(r'contest', views.ContestViewSet)
 router.register(r'contest-participants', views.ContestParticipantsViewSet)
@@ -32,7 +32,7 @@ router.register(r'comments', views.CommentsViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('points/', include('sodatoon.urls')),
+    # path('points/', include('sodatoon.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ]

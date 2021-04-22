@@ -25,9 +25,9 @@ SECRET_KEY = '5b277o4&u2zm52kk0!l*f3!ba(kn$h=hfhv49h&350g)i-(^)d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://sodatoon-api.herokuapp.com/','localhost']
 
-
+AUTH_USER_MODEL = 'reader.User'
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'reader',
     'artist',
     'others',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -107,7 +109,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
