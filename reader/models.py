@@ -274,7 +274,7 @@ class User(AbstractBaseUser):
     # ,help_text = 'Only alphabet characters are allowed.'
     first_name = models.CharField(verbose_name='first name', max_length=40,validators=[alphanumeric])
     last_name = models.CharField(verbose_name='last name', max_length=40,validators=[alphanumeric])
-    gender = models.CharField(verbose_name='gender', choices=GENDER_CHOICES, max_length=10,default='Male')
+    gender = models.CharField(verbose_name='gender', choices=GENDER_CHOICES, max_length=10)
     # password = models.CharField(verbose_name='password', max_length=128)
     profile_pic = models.CharField(verbose_name='profile picture', max_length=320,blank=True)
     country = models.CharField(verbose_name='country', choices=COUNTRIES, max_length=180,blank=True)
