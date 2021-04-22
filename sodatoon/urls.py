@@ -13,9 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
 
+from django.contrib import admin
+from django.urls import include, path
+from rest_framework import routers
+from sodatoon import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'story', views.StoryViewSet)
+router.register(r'episode', views.EpisodeViewSet)
+router.register(r'event', views.EpisodeViewSet)
+router.register(r'event-participants', views.EventParticipantsViewSet)
+router.register(r'contest', views.ContestViewSet)
+router.register(r'contest-participants', views.ContestParticipantsViewSet)
+router.register(r'comments', views.CommentsViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('points/', include('sodatoon.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 ]

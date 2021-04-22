@@ -77,12 +77,17 @@ WSGI_APPLICATION = 'sodatoon.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dfspssb602jvmq',
+        'USER': 'gcojbokbmmkioe',
+        'PASSWORD': 'dbfe1756e5c5c5678195fcd91eb290877f3e3c67b78501fb86deb2aea3cdc3c3',
+        'HOST': 'ec2-18-206-20-102.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': True,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
