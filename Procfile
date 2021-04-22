@@ -1,2 +1,1 @@
-web: gunicorn sodatoon.wsgi
-S
+web: gunicorn sodatoon.wsgi --log-file -
