@@ -5,20 +5,24 @@ from django.contrib.auth.models import Group
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups','gender','profile_image','is_admin','last_login','date_joined']
+        fields = ['url', 'username','first_name','last_name','password', 'email','gender','country','profile_pic','is_admin','last_login','date_joined']
+
 
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ['url', 'name']
+        fields = ('url', 'name')
 
 class StorySerializer(serializers.ModelSerializer):
+    episodes_count =  serializers.IntegerField(min_value=1)
+
     class Meta:
         model = Story
         fields = ('id','user_id','episodes_count',
                   'publishing_timestamp','likes_count','views_count',
                   'story_type','description','rate')
+
 
 class EpisodeSerializer(serializers.ModelSerializer):
     class Meta:

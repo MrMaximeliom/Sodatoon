@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5b277o4&u2zm52kk0!l*f3!ba(kn$h=hfhv49h&350g)i-(^)d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sodatoon-api.herokuapp.com']
+ALLOWED_HOSTS = ['sodatoon-api.herokuapp.com','localhost']
 
 AUTH_USER_MODEL = 'reader.User'
 # Application definition
