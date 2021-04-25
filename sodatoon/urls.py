@@ -24,6 +24,7 @@ from rest_framework_simplejwt.views import (
 )
 
 router = routers.DefaultRouter()
+router.register(r'me', views.CurrentUserViewSet,basename='user')
 router.register(r'story', views.StoryViewSet)
 router.register(r'episode', views.EpisodeViewSet)
 router.register(r'event', views.EventViewSet)

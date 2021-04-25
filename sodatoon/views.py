@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+
+from rest_framework import viewsets, mixins
 from .serializers import UserSerializer, GroupSerializer,\
     CommentsSerializer,EventSerializer,\
     StorySerializer,EpisodeSerializer,\
@@ -17,6 +18,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.request import Request
 
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -34,6 +36,33 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [AllowAny,]
     serializer_class = RegisterSerializer
+
+class CurrentUserViewSet(viewsets.ModelViewSet):
+    """
+      API endpoint that allows to view current user data
+      """
+    # queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return User.objects.filter(id=self.request.user.id)
+
+
+
+
+
+
+
+
+
+
+class CurrentUserView(APIView):
+    permission_classes = [IsAuthenticated]
+    # self.request.user
+
+
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
