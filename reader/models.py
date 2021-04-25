@@ -313,6 +313,7 @@ class Story(models.Model):
     story_type = models.TextField(blank=True,null=True)
     description = models.TextField(blank=True,null=True)
     rate = models.FloatField(blank=True,null=True)
+    story_name = models.TextField(blank=False,null=False)
 
 class Episode(models.Model):
     story_id = models.ForeignKey(Story,on_delete=models.CASCADE)

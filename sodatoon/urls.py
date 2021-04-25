@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from sodatoon import views
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 router.register(r'story', views.StoryViewSet)
 router.register(r'episode', views.EpisodeViewSet)
 router.register(r'event', views.EventViewSet)
@@ -33,6 +35,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     # path('points/', include('sodatoon.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('register/', views.RegisterView.as_view(), name='auth_register'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('logout/', views.LogoutView.as_view(), name='auth_logout'),
 
 ]
