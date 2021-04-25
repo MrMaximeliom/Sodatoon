@@ -315,6 +315,9 @@ class Story(models.Model):
     rate = models.FloatField(blank=True,null=True)
     story_name = models.TextField(blank=False,null=False)
 
+    def __str__(self):
+        return self.story_name
+
 class Episode(models.Model):
     story_id = models.ForeignKey(Story,on_delete=models.CASCADE)
     episode_path = models.TextField(blank=False,null=False)
@@ -330,6 +333,9 @@ class Event(models.Model):
     starting_date = models.DateField(blank=True,null=True)
     ending_date = models.DateField(blank=True,null=True)
 
+    def __str__(self):
+        return self.title
+
 class EventParticipants(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     event_id = models.ForeignKey(Event,on_delete=models.CASCADE)
@@ -342,6 +348,9 @@ class Contest(models.Model):
     starting_timestamp = models.DateTimeField(null=True,blank=True)
     ending_timestamp = models.DateTimeField(null=True,blank=True)
     description = models.TextField(null=True,blank=True)
+
+    def __str__(self):
+        return self.title
 
 class ContestParticipants(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
