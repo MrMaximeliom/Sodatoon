@@ -56,7 +56,7 @@ class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all().order_by('id')
     serializer_class = StorySerializer
     # permission_classes = [IsAuthenticatedOrReadOnly]
-    permission_classes = [IsArtist]
+    permission_classes = [IsAuthenticatedOrReadOnly&IsArtist]
 
 class EpisodeViewSet(viewsets.ModelViewSet):
     queryset = Episode.objects.all().order_by('id')
