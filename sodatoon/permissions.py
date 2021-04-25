@@ -32,7 +32,7 @@ class IsArtist(permissions.BasePermission):
             return True
         else:
             print('here now')
-            if request.user.is_reader == False:
+            if request.user.is_artist:
                 return True
             else:
                 return False

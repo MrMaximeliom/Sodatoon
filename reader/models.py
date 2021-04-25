@@ -269,7 +269,7 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    is_reader = models.BooleanField(default=True)
+    is_artist = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     # ,help_text = 'Only alphabet characters are allowed.'
     first_name = models.CharField(verbose_name='first name', max_length=40,validators=[alphanumeric])
