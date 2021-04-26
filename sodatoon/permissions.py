@@ -30,7 +30,6 @@ class IsArtist(permissions.BasePermission):
             return True
         else:
             if request.user.is_artist:
-                print('he is an artist')
                 return True
             else:
                 return False
