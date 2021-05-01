@@ -25,6 +25,8 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register(r'me', views.CurrentUserViewSet,basename='user')
+router.register(r'artists', views.ArtistUserViewSet,basename='artists')
+router.register(r'readers', views.ReaderUserViewSet)
 router.register(r'story', views.StoryViewSet)
 router.register(r'episode', views.EpisodeViewSet)
 router.register(r'event', views.EventViewSet)
@@ -32,6 +34,7 @@ router.register(r'event-participants', views.EventParticipantsViewSet)
 router.register(r'contest', views.ContestViewSet)
 router.register(r'contest-participants', views.ContestParticipantsViewSet)
 router.register(r'comments', views.CommentsViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),

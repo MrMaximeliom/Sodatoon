@@ -45,6 +45,7 @@ class CurrentUserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
+
     def get_queryset(self):
         return User.objects.filter(id=self.request.user.id)
 
@@ -64,13 +65,26 @@ class CurrentUserView(APIView):
 
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class ArtistUserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return User.objects.filter(is_artist=True)
+
+class ReaderUserViewSet(viewsets.ModelViewSet):
+        """
+        API endpoint that allows users to be viewed or edited.
+        """
+        queryset = User.objects.all().order_by('-date_joined')
+        serializer_class = UserSerializer
+        permission_classes = [AllowAny]
+        def get_queryset(self):
+            return User.objects.filter(is_artist=False)
 
 
 class GroupViewSet(viewsets.ModelViewSet):
