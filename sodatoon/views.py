@@ -94,6 +94,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
+    http_method_names = ['get']
 
     # def get_queryset(self):
     #     return User.objects.filter(is_artist=False)
