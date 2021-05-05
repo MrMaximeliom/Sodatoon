@@ -277,7 +277,7 @@ class User(AbstractBaseUser):
     gender = models.CharField(verbose_name='gender', choices=GENDER_CHOICES, max_length=10)
     # password = models.CharField(verbose_name='password', max_length=128)
     profile_pic = models.CharField(verbose_name='profile picture', max_length=320,blank=True)
-    country = models.CharField(verbose_name='country', choices=COUNTRIES, max_length=180,blank=True)
+    country = models.CharField(verbose_name='country', choices=COUNTRIES, max_length=180,blank=True,null=True)
     USERNAME_FIELD = 'email'
     # 'username', 'first_name', 'last_name', 'gender'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name','gender']
