@@ -6,7 +6,7 @@ Story Model:
 this model is used to save story's data
 """
 class Story(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     episodes_count = models.IntegerField(blank=False, null=False)
     publishing_timestamp = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     likes_count = models.IntegerField(blank=True, null=True)

@@ -34,21 +34,18 @@ class IsArtist(permissions.BasePermission):
             else:
                 return False
 
+class IsAnonymousUser(permissions.BasePermission):
+    """
+    Object-level permission to only allow owners of an object to edit it.
+    Assumes the model instance has an `owner` attribute.
+    """
 
-    # def has_object_permission(self, request, view, obj):
-    #     # Read permissions are allowed to any request,
-    #     # so we'll always allow GET, HEAD or OPTIONS requests.
-    #     if request.method in permissions.SAFE_METHODS:
-    #
-    #         return True
-    #     else:
-    #
-    #         if request.user.is_artist:
-    #             print('he is an artist')
-    #             return True
-    #         else:
-    #             return False
+    def has_permission(self, request, view):
 
-
-
-        # Instance must have an attribute named `owner`.
+        # if request.method in permissions.SAFE_METHODS:
+        #     return False
+        # else:
+        if request.user.is_anonymous or request.user.is_admin:
+            return True
+        else:
+            return False

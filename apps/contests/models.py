@@ -6,7 +6,7 @@ Contest Model:
 this model is used to save contest's data
 """
 class Contest(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(blank=False, null=False)
     prize = models.TextField(blank=True, null=True)
     starting_timestamp = models.DateTimeField(null=True, blank=True)
