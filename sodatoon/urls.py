@@ -9,6 +9,8 @@ from apps.contests import endpoints_views as contest_views
 from apps.events import endpoints_views as event_views
 from apps.comments import endpoints_views as comment_views
 from apps.episodes import endpoints_views as episodes_views
+from apps.episodeLikes import endpoints_views as episodeLikes_views
+from apps.storyLikes import endpoints_views as storyLikes_views
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
@@ -36,6 +38,8 @@ router.register(r'eventParticipants', event_views.EventParticipantsViewSet)
 router.register(r'contest', contest_views.ContestViewSet)
 router.register(r'contestParticipants', contest_views.ContestParticipantsViewSet)
 router.register(r'comments', comment_views.CommentsViewSet)
+router.register(r'storyLikes', storyLikes_views.StoryLikesViewSet)
+router.register(r'episodeLikes', episodeLikes_views.EpisodeLikeViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

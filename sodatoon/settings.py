@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'apps.events',
     'apps.stories',
     'apps.comments',
+    'apps.storyLikes',
+    'apps.episodeLikes',
     'rest_framework',
     'django_filters',
 ]

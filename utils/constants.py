@@ -209,3 +209,9 @@ COUNTRIES = (
     ('Zambia', 'Zambia'),
     ('Zimbabwe', 'Zimbabwe')
 )
+LIKE_REACTIONS = [
+    ("Like",1),
+    ("Love",2),
+    ("Sad",3),
+    ("Anger",4),
+]
