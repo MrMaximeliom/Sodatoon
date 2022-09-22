@@ -26,7 +26,7 @@ SECRET_KEY = '5b277o4&u2zm52kk0!l*f3!ba(kn$h=hfhv49h&350g)i-(^)d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sodatoon-api.herokuapp.com','localhost','sudatoon-heroku.herokuapp.com']
+ALLOWED_HOSTS = ['sodatoon-api.herokuapp.com','localhost','sudatoon-heroku.herokuapp.com','sodatoon.onrender.com']
 
 AUTH_USER_MODEL = 'accounts.User'
 # Application definition
